@@ -100,9 +100,23 @@ public class Marketing_TestScript {
 		Thread.sleep(2000);
 		MouseHover.click();
 		Thread.sleep(2000);
+	    	
+	}
+	
+	// Creating New Campaign
+	
+	@Then("User verify the Creating New Campaign in Marketing by click on Save button")
+	public void user_verify_the_Creating_New_Campaign_in_Marketing_by_click_on_Save_button() throws InterruptedException {
 	    
-		
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@name='campaignname']")).sendKeys("Test");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id='basicTab']/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr[1]/td/div/input[1]")).click();  
+		Thread.sleep(3000);
 		
 	}
+
 
 }
