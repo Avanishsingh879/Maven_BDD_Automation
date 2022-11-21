@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\dell\AppData\Local\Temp\testng-eclipse--1796793126\testng-customsuite.xml</span>
+                    <span>C:\Users\dell\AppData\Local\Temp\testng-eclipse--350637013\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="Testrunner.TestSuiterunner" class="method navigator-link" hash-for-method="runScenario(&quot;verify the Vtiger Login Page&quot;, &quot;Validating Helpmate flows for Genpact Home page&quot;)">runScenario("verify the Vtiger Login Page", "Validating Helpmate flows for Genpact Home page")</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Testrunner.TestSuiterunner" class="method navigator-link" hash-for-method="runScenario(&quot;verify the Vtiger Login Page&quot;, &quot;Validating Sales page&quot;)">runScenario("verify the Vtiger Login Page", "Validating Sales page")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -125,13 +125,25 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;verify the Vtiger Login Page&quot;, &quot;Validating Helpmate flows for Genpact Home page&quot;)">
-                  </a> <!-- runScenario("verify the Vtiger Login Page", "Validating Helpmate flows for Genpact Home page") -->
+                  <a name="runScenario(&quot;verify the Vtiger Login Page&quot;, &quot;Validating Sales page&quot;)">
+                  </a> <!-- runScenario("verify the Vtiger Login Page", "Validating Sales page") -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("verify the Vtiger Login Page", "Validating Helpmate flows for Genpact Home page")</span>
-                  <div class="stack-trace">cucumber.runtime.CucumberException: There are undefined steps
-	at cucumber.api.testng.TestCaseResultListener.getError(TestCaseResultListener.java:58)
-	at cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:61)
+                  <span class="parameters">("verify the Vtiger Login Page", "Validating Sales page")</span>
+                  <div class="stack-trace">cucumber.runtime.DuplicateStepDefinitionException: Duplicate step definitions in stepdefinition.Marketing_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/ and stepdefinition.Sales_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/
+	at cucumber.runner.Glue.addStepDefinition(Glue.java:30)
+	at cucumber.runtime.java.JavaBackend.addStepDefinition(JavaBackend.java:142)
+	at cucumber.runtime.java.MethodScanner.scan(MethodScanner.java:64)
+	at cucumber.runtime.java.MethodScanner.scan(MethodScanner.java:41)
+	at cucumber.runtime.java.JavaBackend.loadGlue(JavaBackend.java:82)
+	at cucumber.runner.Runner.&lt;init&gt;(Runner.java:38)
+	at cucumber.runner.ThreadLocalRunnerSupplier.createRunner(ThreadLocalRunnerSupplier.java:42)
+	at cucumber.runner.ThreadLocalRunnerSupplier.access$000(ThreadLocalRunnerSupplier.java:13)
+	at cucumber.runner.ThreadLocalRunnerSupplier$1.initialValue(ThreadLocalRunnerSupplier.java:22)
+	at cucumber.runner.ThreadLocalRunnerSupplier$1.initialValue(ThreadLocalRunnerSupplier.java:19)
+	at java.base/java.lang.ThreadLocal.setInitialValue(ThreadLocal.java:195)
+	at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:172)
+	at cucumber.runner.ThreadLocalRunnerSupplier.get(ThreadLocalRunnerSupplier.java:38)
+	at cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:55)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:22)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -169,7 +181,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\dell\AppData\Local\Temp\testng-eclipse--1796793126\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\dell\AppData\Local\Temp\testng-eclipse--350637013\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -230,12 +242,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'Testrunner.TestSuiterunner')
-data.setCell(0, 3, 25115);
+data.setCell(0, 3, 236);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 seconds</span>
+              <span class="suite-total-time">Total running time: 236 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -269,12 +281,12 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("verify the Vtiger Login Page", "Validating Helpmate flows for Genpact Home page")</span>
-                <span class="method-start">1109 ms</span>
+                <span class="method-name">runScenario("verify the Vtiger Login Page", "Validating Sales page")</span>
+                <span class="method-start">697 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">26230 ms</span>
+                <span class="method-start">943 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

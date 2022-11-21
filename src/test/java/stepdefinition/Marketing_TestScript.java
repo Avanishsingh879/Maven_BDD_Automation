@@ -38,6 +38,8 @@ public class Marketing_TestScript {
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("Url"));
 		Thread.sleep(6000);
+		
+		
 	}
 
 	@When("User Enter Username and Password by click on login Button")

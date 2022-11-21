@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Nov 01 02:41:01 IST 2022</td>
+<td>Started on:</td><td>Mon Nov 21 11:52:12 IST 2022</td>
 </tr>
-<tr><td>Total time:</td><td>26 seconds (26305 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (985 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,10 +75,22 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='Testrunner.TestSuiterunner.runScenario()'><b>runScenario</b><br>Test class: Testrunner.TestSuiterunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "verify the Vtiger Login Page", "Validating Helpmate flows for Genpact Home page"</td>
-<td><div><pre>cucumber.runtime.CucumberException: There are undefined steps
-	at cucumber.api.testng.TestCaseResultListener.getError(TestCaseResultListener.java:58)
-	at cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:61)
+<td title='Testrunner.TestSuiterunner.runScenario()'><b>runScenario</b><br>Test class: Testrunner.TestSuiterunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "verify the Vtiger Login Page", "Validating Sales page"</td>
+<td><div><pre>cucumber.runtime.DuplicateStepDefinitionException: Duplicate step definitions in stepdefinition.Marketing_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/ and stepdefinition.Sales_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/
+	at cucumber.runner.Glue.addStepDefinition(Glue.java:30)
+	at cucumber.runtime.java.JavaBackend.addStepDefinition(JavaBackend.java:142)
+	at cucumber.runtime.java.MethodScanner.scan(MethodScanner.java:64)
+	at cucumber.runtime.java.MethodScanner.scan(MethodScanner.java:41)
+	at cucumber.runtime.java.JavaBackend.loadGlue(JavaBackend.java:82)
+	at cucumber.runner.Runner.&lt;init&gt;(Runner.java:38)
+	at cucumber.runner.ThreadLocalRunnerSupplier.createRunner(ThreadLocalRunnerSupplier.java:42)
+	at cucumber.runner.ThreadLocalRunnerSupplier.access$000(ThreadLocalRunnerSupplier.java:13)
+	at cucumber.runner.ThreadLocalRunnerSupplier$1.initialValue(ThreadLocalRunnerSupplier.java:22)
+	at cucumber.runner.ThreadLocalRunnerSupplier$1.initialValue(ThreadLocalRunnerSupplier.java:19)
+	at java.base/java.lang.ThreadLocal.setInitialValue(ThreadLocal.java:195)
+	at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:172)
+	at cucumber.runner.ThreadLocalRunnerSupplier.get(ThreadLocalRunnerSupplier.java:38)
+	at cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:55)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:22)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -105,10 +117,22 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1440939580", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1440939580'><pre>cucumber.runtime.CucumberException: There are undefined steps
-	at cucumber.api.testng.TestCaseResultListener.getError(TestCaseResultListener.java:58)
-	at cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:61)
+</pre></div><a href='#' onClick='toggleBox("stack-trace2045913001", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2045913001'><pre>cucumber.runtime.DuplicateStepDefinitionException: Duplicate step definitions in stepdefinition.Marketing_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/ and stepdefinition.Sales_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/
+	at cucumber.runner.Glue.addStepDefinition(Glue.java:30)
+	at cucumber.runtime.java.JavaBackend.addStepDefinition(JavaBackend.java:142)
+	at cucumber.runtime.java.MethodScanner.scan(MethodScanner.java:64)
+	at cucumber.runtime.java.MethodScanner.scan(MethodScanner.java:41)
+	at cucumber.runtime.java.JavaBackend.loadGlue(JavaBackend.java:82)
+	at cucumber.runner.Runner.&lt;init&gt;(Runner.java:38)
+	at cucumber.runner.ThreadLocalRunnerSupplier.createRunner(ThreadLocalRunnerSupplier.java:42)
+	at cucumber.runner.ThreadLocalRunnerSupplier.access$000(ThreadLocalRunnerSupplier.java:13)
+	at cucumber.runner.ThreadLocalRunnerSupplier$1.initialValue(ThreadLocalRunnerSupplier.java:22)
+	at cucumber.runner.ThreadLocalRunnerSupplier$1.initialValue(ThreadLocalRunnerSupplier.java:19)
+	at java.base/java.lang.ThreadLocal.setInitialValue(ThreadLocal.java:195)
+	at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:172)
+	at cucumber.runner.ThreadLocalRunnerSupplier.get(ThreadLocalRunnerSupplier.java:38)
+	at cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:55)
 	at cucumber.api.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:22)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -136,7 +160,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>25</td>
+<td>0</td>
 <td>Testrunner.TestSuiterunner@560348e6</td></tr>
 </table><p>
 </body>

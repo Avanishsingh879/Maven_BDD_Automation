@@ -2,19 +2,19 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-10-31T21:11:01Z" name="Default suite" finished-at="2022-10-31T21:11:28Z" duration-ms="26305">
+  <suite started-at="2022-11-21T06:22:12Z" name="Default suite" finished-at="2022-11-21T06:22:13Z" duration-ms="985">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:Testrunner.TestSuiterunner@560348e6]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2022-10-31T21:11:01Z" name="Default test" finished-at="2022-10-31T21:11:28Z" duration-ms="26305">
+    <test started-at="2022-11-21T06:22:12Z" name="Default test" finished-at="2022-11-21T06:22:13Z" duration-ms="985">
       <class name="Testrunner.TestSuiterunner">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Testrunner.TestSuiterunner@560348e6]" started-at="2022-10-31T21:11:01Z" name="setUpClass" finished-at="2022-10-31T21:11:02Z" duration-ms="1030" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:Testrunner.TestSuiterunner@560348e6]" started-at="2022-11-21T06:22:12Z" name="setUpClass" finished-at="2022-11-21T06:22:12Z" duration-ms="620" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:Testrunner.TestSuiterunner@560348e6]" started-at="2022-10-31T21:11:02Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-10-31T21:11:28Z" duration-ms="25115" status="FAIL">
+        <test-method signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:Testrunner.TestSuiterunner@560348e6]" started-at="2022-11-21T06:22:12Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2022-11-21T06:22:13Z" duration-ms="236" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -23,18 +23,30 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA["Validating Helpmate flows for Genpact Home page"]]>
+                <![CDATA["Validating Sales page"]]>
               </value>
             </param>
           </params>
-          <exception class="cucumber.runtime.CucumberException">
+          <exception class="cucumber.runtime.DuplicateStepDefinitionException">
             <message>
-              <![CDATA[There are undefined steps]]>
+              <![CDATA[Duplicate step definitions in stepdefinition.Marketing_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/ and stepdefinition.Sales_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/]]>
             </message>
             <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: There are undefined steps
-at cucumber.api.testng.TestCaseResultListener.getError(TestCaseResultListener.java:58)
-at cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:61)
+              <![CDATA[cucumber.runtime.DuplicateStepDefinitionException: Duplicate step definitions in stepdefinition.Marketing_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/ and stepdefinition.Sales_TestScript.login_sucessfully() in file:/C:/Maven_BDD_Automation/target/test-classes/
+at cucumber.runner.Glue.addStepDefinition(Glue.java:30)
+at cucumber.runtime.java.JavaBackend.addStepDefinition(JavaBackend.java:142)
+at cucumber.runtime.java.MethodScanner.scan(MethodScanner.java:64)
+at cucumber.runtime.java.MethodScanner.scan(MethodScanner.java:41)
+at cucumber.runtime.java.JavaBackend.loadGlue(JavaBackend.java:82)
+at cucumber.runner.Runner.<init>(Runner.java:38)
+at cucumber.runner.ThreadLocalRunnerSupplier.createRunner(ThreadLocalRunnerSupplier.java:42)
+at cucumber.runner.ThreadLocalRunnerSupplier.access$000(ThreadLocalRunnerSupplier.java:13)
+at cucumber.runner.ThreadLocalRunnerSupplier$1.initialValue(ThreadLocalRunnerSupplier.java:22)
+at cucumber.runner.ThreadLocalRunnerSupplier$1.initialValue(ThreadLocalRunnerSupplier.java:19)
+at java.base/java.lang.ThreadLocal.setInitialValue(ThreadLocal.java:195)
+at java.base/java.lang.ThreadLocal.get(ThreadLocal.java:172)
+at cucumber.runner.ThreadLocalRunnerSupplier.get(ThreadLocalRunnerSupplier.java:38)
+at cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:55)
 at cucumber.api.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:22)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
@@ -63,11 +75,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- cucumber.runtime.CucumberException -->
+          </exception> <!-- cucumber.runtime.DuplicateStepDefinitionException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Testrunner.TestSuiterunner@560348e6]" started-at="2022-10-31T21:11:28Z" name="tearDownClass" finished-at="2022-10-31T21:11:28Z" duration-ms="58" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:Testrunner.TestSuiterunner@560348e6]" started-at="2022-11-21T06:22:13Z" name="tearDownClass" finished-at="2022-11-21T06:22:13Z" duration-ms="23" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
