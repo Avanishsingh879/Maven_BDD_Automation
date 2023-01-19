@@ -14,19 +14,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.SendKeysAction;
 
+import Generic_Method.Utility_Method;
+import PageObject.SalesProcess_PageObject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import junit.framework.Assert;
 
-public class Sales_TestScript {
-	
+public class Sales_TestScript extends Utility_Method{
 	
 	public static WebDriver driver;
 	public static Properties file;
 	
+	
+	//SalesProcess_PageObject obj= new SalesProcess_PageObject();
 
 	@Given("I navigate to application open URl")
 	public void i_navigate_to_application_open_URl() throws InterruptedException, IOException {
@@ -34,7 +36,7 @@ public class Sales_TestScript {
 		FileInputStream fis=new FileInputStream("Config.properties");
 		file=new Properties();
 		file.load(fis);
-		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_106.exe");
+		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_108.exe");
 		driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -101,9 +103,10 @@ public class Sales_TestScript {
 		
 		Thread.sleep(2000);
 		WebElement MouseHover=driver.findElement(By.xpath("//a[text()='Sales']"));
-		Actions act=new Actions(driver);
-		act.moveToElement(MouseHover).build().perform();
-		System.out.println("MouseHover Done");
+		//Actions act=new Actions(driver);
+		//act.moveToElement(MouseHover).build().perform();
+		//System.out.println("MouseHover Done");
+		Utility_Method.Hover(driver, MouseHover);
 		Thread.sleep(2000);
 	    	
 	}
@@ -111,16 +114,36 @@ public class Sales_TestScript {
 	@Then("User has click on Leads tab")
 	public void user_has_click_on_Leads_tab() throws InterruptedException {
 		
-		
-	    	
+		Thread.sleep(2000);
+		WebElement Leads_clk=driver.findElement(By.linkText("Leads"));
+		Utility_Method.highLightElement(driver, Leads_clk);
+		Thread.sleep(2000);
+		Leads_clk.click();
+		Thread.sleep(2000);
+		Utility_Method.captureScreenShot(driver);
+		Thread.sleep(2000);
 	}
 	
 	// Creating New Campaign
 	
 	@Then("User verify the Creating Leads in Sales by click on Save button")
-	public void user_verify_the_Creating_Leads_in_Sales_by_click_on_Save_button() throws InterruptedException {
-	    
+	public void user_verify_the_Creating_Leads_in_Sales_by_click_on_Save_button() throws InterruptedException, IOException {
+	   
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//img[@title='Create Lead...']")).click();
+		Thread.sleep(2000);
+		File fold=new File("Screenshots");
+		if(fold.exists()&& fold.isDirectory()) {
+			
+			File srcc=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(srcc, new File("./Screenshots/Lead.png"));
+			System.out.println("Screenshot Taking");
+		}
 		
+		else {
+			
+			System.out.println("Screenshot not taking");
+		}
 		
 		
 	}
