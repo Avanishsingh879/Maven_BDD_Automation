@@ -3,6 +3,7 @@ package stepdefinition;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -124,7 +125,7 @@ public class Sales_TestScript extends Utility_Method{
 		Thread.sleep(2000);
 	}
 	
-	// Creating New Campaign
+	// Creating Laeds New Campaign
 	
 	@Then("User verify the Creating Leads in Sales by click on Save button")
 	public void user_verify_the_Creating_Leads_in_Sales_by_click_on_Save_button() throws InterruptedException, IOException {
@@ -136,7 +137,7 @@ public class Sales_TestScript extends Utility_Method{
 		if(fold.exists()&& fold.isDirectory()) {
 			
 			File srcc=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(srcc, new File("./Screenshots/Lead.png"));
+			FileUtils.copyFile(srcc, new File("./Screenshots/Lead_Page.png"));
 			System.out.println("Screenshot Taking");
 		}
 		
@@ -147,8 +148,42 @@ public class Sales_TestScript extends Utility_Method{
 		
 		
 	}
-
+	
+	@Then("User verify the checked AllCheck List in Sales page")
+	public void user_verify_the_checked_AllCheck_List_in_Sales_page() throws InterruptedException {
+		
+		
+		Thread.sleep(3000);
+		WebElement Sales=driver.findElement(By.xpath("//a[text()='Sales']"));
+		Sales.click();
+		Thread.sleep(3000);
+		List<WebElement>AllcheckList=driver.findElements(By.xpath("//input[@name='selected_id']"));
+		
+		int sixe=AllcheckList.size();
+		System.out.println(sixe);
+		for(int i=0;i<AllcheckList.size();i++) {
+			
+			AllcheckList.get(i).click();
+		}
+	   System.out.println("All Check box Checked");
+	   Utility_Method.captureScreenShot(driver);
+	   Thread.sleep(3000);
+	}
 	
 	
-
+	@Then("User verify and Delete checklist in Sales page")
+	public void user_verify_and_Delete_checklist_in_Sales_page() throws InterruptedException {
+		
+		Thread.sleep(3000);
+		
+		
+		
+	}
 }
+
+
+
+
+
+
+

@@ -22,22 +22,23 @@ public class Suport_TestScript {
 	
 	@Given("I navigate To Application open URl")
 	public void i_navigate_To_Application_open_URl() throws IOException, InterruptedException {
-		
-	  FileInputStream fis=new FileInputStream("Config.properties");
-	  Properties file=new Properties();
-	  file.load(fis);
-	  System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_108.exe");
-	  driver=new ChromeDriver();
-	  driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-	  driver.manage().window().maximize();
-	  driver.get(file.getProperty("URL"));
-	  Thread.sleep(3000);
-	  System.out.println("Browser Launch");
-	  
+	
+		FileInputStream fis=new FileInputStream("Config.properties");
+		Properties file=new Properties();
+		file.load(fis);
+		System.setProperty("webdriver.chrome.driver","Drivers\\chromedriver_108.exe");
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get(file.getProperty("Url"));
+		Thread.sleep(2000);
+		System.out.println("Browser Launch");
 	}
 
 	@When("user Enter Username and Password By click on Login button")
 	public void user_Enter_Username_and_Password_By_click_on_Login_button() {
+		
+		
 	   
 	}
 
