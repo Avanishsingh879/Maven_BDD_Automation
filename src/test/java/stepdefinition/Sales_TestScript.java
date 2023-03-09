@@ -289,12 +289,21 @@ public class Sales_TestScript extends Utility_Method{
 	// Creating Accounts in Sales Pages
 	
 	@Then("User verify the Creating Accounts in Sales by click on Save button")
-	public void user_verify_the_Creating_Accounts_in_Sales_by_click_on_Save_button() {
+	public void user_verify_the_Creating_Accounts_in_Sales_by_click_on_Save_button() throws InterruptedException, IOException {
 	   
+		Thread.sleep(2000);
+		WebElement Accunts_Create=driver.findElement(By.xpath("//img[@Title='Create Account...']"));
+		Accunts_Create.click();
+		Thread.sleep(3000);
 		
+		File Folder1=new File("Screenshots");
+		if(Folder1.exists() && Folder1.isDirectory()) {
+			
+			File src1=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(src1, new File("./Screenshots.Accunts.png"));
+		}
 		
-		
-		
+		System.out.println("Accounts Screenshots Completed");
 	}
 }
 
