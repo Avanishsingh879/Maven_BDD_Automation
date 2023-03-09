@@ -277,9 +277,12 @@ public class Sales_TestScript extends Utility_Method{
 	// Accounts Tab
 	
 	@Then("User has click on Accounts tab")
-	public void user_has_click_on_Accounts_tab() {
+	public void user_has_click_on_Accounts_tab() throws InterruptedException {
 	 
-		
+		Thread.sleep(2000);
+		WebElement Accnts=driver.findElement(By.xpath("//*[@id='Sales_sub']//a[text()='Accounts']"));
+		Accnts.click();
+		Thread.sleep(2000);
 		
 	}
 	
