@@ -42,7 +42,7 @@ public class Sales_TestScript extends Utility_Method{
 		FileInputStream fis=new FileInputStream("Config.properties");
 		file=new Properties();
 		file.load(fis);
-		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_108.exe");
+		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_110.exe");
 		driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -263,6 +263,34 @@ public class Sales_TestScript extends Utility_Method{
 		Thread.sleep(3000);
 		Utility_Method.captureScreenShot(driver);
 		Thread.sleep(3000);
+		WebElement Sub=driver.findElement(By.xpath("//input[@name='subject']"));
+		Sub.sendKeys("Test");
+		Thread.sleep(3000);
+		
+		WebElement mail_body=driver.findElement(By.xpath("//table[@class='cke_editor']/tbody/tr[2]//td[@id='cke_contents_description']"));
+		
+		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+		jse1.executeScript("arguments[0].value='Hello Automation Testing';", mail_body);
+		Thread.sleep(3000);
+	}
+	
+	// Accounts Tab
+	
+	@Then("User has click on Accounts tab")
+	public void user_has_click_on_Accounts_tab() {
+	 
+		
+		
+	}
+	
+	// Creating Accounts in Sales Pages
+	
+	@Then("User verify the Creating Accounts in Sales by click on Save button")
+	public void user_verify_the_Creating_Accounts_in_Sales_by_click_on_Save_button() {
+	   
+		
+		
+		
 		
 	}
 }
