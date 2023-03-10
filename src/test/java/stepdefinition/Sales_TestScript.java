@@ -2,6 +2,7 @@ package stepdefinition;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
@@ -20,9 +21,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-
 import Generic_Method.Utility_Method;
-import PageObject.SalesProcess_PageObject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -32,9 +31,10 @@ public class Sales_TestScript extends Utility_Method{
 	
 	public static WebDriver driver;
 	public static Properties file;
+	public static Properties Locators_file;
+	//public SalesProcess_PageObject salesobj=new SalesProcess_PageObject();
+	//SalesProcess_PageObject salesobj=new SalesProcess_PageObject();
 	
-	
-	//SalesProcess_PageObject obj= new SalesProcess_PageObject();
 
 	@Given("I navigate to application open URl")
 	public void i_navigate_to_application_open_URl() throws InterruptedException, IOException {
@@ -277,13 +277,21 @@ public class Sales_TestScript extends Utility_Method{
 	// Accounts Tab
 	
 	@Then("User has click on Accounts tab")
-	public void user_has_click_on_Accounts_tab() throws InterruptedException {
+	public void user_has_click_on_Accounts_tab() throws InterruptedException, IOException {
 	 
 		Thread.sleep(2000);
-		WebElement Accnts=driver.findElement(By.xpath("//*[@id='Sales_sub']//a[text()='Accounts']"));
-		Accnts.click();
-		Thread.sleep(2000);
+		//FileInputStream fis1=new FileInputStream("OR.properties");
+		//Locators_file=new Properties();
+		//Locators_file.load(fis1);
+		Utility_Method.readPropertiesFile();
+		driver.findElement(By.xpath(fileObject.getProperty("Accounts_Sales"))).click();
+		//WebElement Accnts=driver.findElement(By.xpath("//*[@id='Sales_sub']//a[text()='Accounts']"));
+		//Accnts.click();
+		//Thread.sleep(2000);
+		//WebElement oj=salesobj.Accounts_clk;
 		
+		//oj.click();
+		Thread.sleep(2000);
 	}
 	
 	// Creating Accounts in Sales Pages
@@ -300,7 +308,7 @@ public class Sales_TestScript extends Utility_Method{
 		if(Folder1.exists() && Folder1.isDirectory()) {
 			
 			File src1=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(src1, new File("./Screenshots.Accunts.png"));
+			FileUtils.copyFile(src1, new File("./Screenshots/Accunts.png"));
 		}
 		
 		System.out.println("Accounts Screenshots Completed");

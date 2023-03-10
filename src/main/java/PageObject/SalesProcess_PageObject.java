@@ -12,23 +12,16 @@ public class SalesProcess_PageObject {
 	
 		
 	@FindBy(name="Leads")
-	public static WebElement Salads_clka;
+	public WebElement Salads_clka;
 	
 	@FindBy(linkText="Leads")
-	public static WebElement Leads_clk;
+	public WebElement Leads_clk;
 	
 	@FindBy(xpath="//*[@name='Login']")
-	public static WebElement Login_clk;
+	public WebElement Login_clk;
 	
-	
-	
-	public void Leads() 
-	{ 
-	Leads_clk.click(); 
-	
-	 } 
-	
-	
+	@FindBy(xpath="//*[@id='Sales_sub']//a[text()='Accounts']")
+	public WebElement Accounts_clk;
      
 
 }

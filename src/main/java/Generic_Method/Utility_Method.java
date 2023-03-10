@@ -1,6 +1,9 @@
 package Generic_Method;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.maven.shared.utils.io.FileUtils;
@@ -18,11 +21,11 @@ public class Utility_Method {
 	
 	
 	//public static WebDriver DriverObject;
-	public static Properties file;
+	///public static Properties file;
     public static JavascriptExecutor Js;
+    public static Properties fileObject;
+    public static String path="OR.properties ";
     
-	////////////////////////////////////////////////
-   
     // TakeScreenshots
     public static void captureScreenShot(WebDriver driver)
     {
@@ -63,6 +66,15 @@ public class Utility_Method {
 
     }
 
+    /////Propertis File
+    
+    public static void readPropertiesFile() throws IOException{
+    	
+    	fileObject= new Properties();
+    	FileInputStream fis=new FileInputStream(path);
+    	fileObject.load(fis);
+    	
+    }
     }
 
 
