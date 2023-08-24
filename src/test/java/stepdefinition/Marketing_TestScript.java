@@ -32,7 +32,7 @@ public class Marketing_TestScript {
 		FileInputStream fis=new FileInputStream("Config.properties");
 		Properties prop=new Properties();
 		prop.load(fis);
-		System.setProperty("webdriver.chrome.driver","Drivers\\chromedriver_114.exe");
+		System.setProperty("webdriver.chrome.driver","Drivers\\chromedriver_116.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
