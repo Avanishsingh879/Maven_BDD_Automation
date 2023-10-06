@@ -31,11 +31,7 @@ public class Quick_Create_TestScript {
 		driver.manage().window().maximize();
 		System.out.println("Browser Launch Successfully");
 		Thread.sleep(2000);
-		
-		
-		
-		
-	   
+		   
 	}
 
 	@When("User Enter username and password by click On login Button")
