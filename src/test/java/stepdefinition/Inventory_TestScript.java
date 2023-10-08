@@ -2,14 +2,19 @@ package stepdefinition;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -86,16 +91,92 @@ public class Inventory_TestScript {
 	    
 	}
 	
-	@Then("User verify the Creating Products in Marketing by click on Save button")
-	public void user_verify_the_Creating_Products_in_Marketing_by_click_on_Save_button() throws InterruptedException {
+	@Then("User verify the Creating Products{string} in Inventory by click on Save button")
+	public void user_verify_the_Creating_Products_in_Inventory_by_click_on_Save_button(String ProductName) throws InterruptedException {
 		
 		Thread.sleep(1000);
+		WebElement crepro=driver.findElement(By.xpath("//img[@title='Create Products...']"));
+		crepro.click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@name='productname']")).sendKeys(ProductName);
+		Thread.sleep(1000);
+		List<WebElement>alllist=driver.findElements(By.xpath("//*[@class='dvtContentSpace']//input[@value='  Save  ']"));
+		
+		int size=alllist.size();
+		for(int i=0;i<alllist.size()-1;i++) {
+			
+			WebElement list=alllist.get(1);
+			list.click();
+			break;
+			
+			
+		}
+	}
+		@Then("User has verify on Inventory tab")
+		public void user_has_verify_on_Inventory_tab() throws InterruptedException {
+			
+			Thread.sleep(1000);
+			WebElement gettxt=driver.findElement(By.xpath("//a[text()='Inventory']"));
+			String invttext=gettxt.getText();
+			System.out.println(invttext);
+			System.out.println("User has verify Inventory screen");
+		    
+		}
+
+		@Then("User has click on Invoice tab")
+		public void user_has_click_on_Invoice_tab() throws InterruptedException {
+			
+			Thread.sleep(1000);
+			WebElement MouseHover=driver.findElement(By.xpath("//a[text()='Inventory']"));
+			Actions act=new Actions(driver);
+			act.moveToElement(MouseHover).build().perform();
+			WebElement invoiceBtn=driver.findElement(By.xpath("//div[@id='Inventory_sub']//a[text()='Invoice']"));
+			
+			if(invoiceBtn.isEnabled()) {
+				
+				invoiceBtn.click();
+			}
+			
+			System.out.println("User has click Invoice Tab");
+			
+		    
+		}
+
+		@Then("User verify the Creating New Invoice {string},{string} in Inventory by click on Save button")
+		public void user_verify_the_Creating_New_Invoice_in_Inventory_by_click_on_Save_button(String Subject, String AccountName) throws InterruptedException {
+			
+			Thread.sleep(2000);
+			WebElement createinvoiceBtn=driver.findElement(By.xpath("//img[@title='Create Invoice...']"));
+			createinvoiceBtn.click();
+			Thread.sleep(1000);
+			WebElement subtext=driver.findElement(By.xpath("//input[@name='subject']"));
+			subtext.sendKeys(Subject);
+			System.out.println("User has enter Subject Text field");
+			driver.findElement(By.xpath("//input[@id='single_accountid']/following-sibling::img")).click();
+			Thread.sleep(3000);
+			//////////////////////////////////////window Handling///////////
+			
+			String mainwindow=driver.getWindowHandle();
+			System.out.println(mainwindow);
+			Set<String>set=driver.getWindowHandles();
+			for (String handle : set) {
+			    if (!handle.equals(mainwindow)) {
+			        driver.switchTo().window(handle); // Switch to the pop-up window
+			        break;
+			    }
+			driver.manage().window().maximize();
+			WebElement srchtxt=driver.findElement(By.xpath("//input[@id='search_txt']"));
+			srchtxt.sendKeys(AccountName);
+			
+		   
+		}
 		
 		
+		}	
 	   
 	}
 	
 	
 	
 
-}
+
