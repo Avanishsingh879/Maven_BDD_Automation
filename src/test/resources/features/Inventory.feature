@@ -23,7 +23,7 @@ Feature: Validating Inventory page
     |ProductName|
     |TestProduct|
     
- @Regression @Inventory3  @TC_002
+ @Regression @Inventory3  @TC_003
  Scenario Outline: verify the Vtiger Login Page
     Given I navigate to application open UrL
     When user Enter Username and Password by click on login Button

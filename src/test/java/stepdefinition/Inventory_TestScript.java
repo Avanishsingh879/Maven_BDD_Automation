@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +33,7 @@ public class Inventory_TestScript {
 		FileInputStream fis=new FileInputStream("Config.properties");
 		file=new Properties();
 		file.load(fis);
-		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_116.exe");
+		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_118.exe");
 		driver=new ChromeDriver();
 		driver.get(file.getProperty("Url"));
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
@@ -158,15 +159,27 @@ public class Inventory_TestScript {
 			
 			String mainwindow=driver.getWindowHandle();
 			System.out.println(mainwindow);
-			Set<String>set=driver.getWindowHandles();
-			for (String handle : set) {
-			    if (!handle.equals(mainwindow)) {
-			        driver.switchTo().window(handle); // Switch to the pop-up window
-			        break;
-			    }
+			Set <String> handles =driver.getWindowHandles();
+			Iterator<String> it = handles.iterator();
+			//iterate through your windows
+			while (it.hasNext()){
+			String parent = it.next();
+			String newwin = it.next();
+			driver.switchTo().window(newwin);
+			Thread.sleep(2000);
 			driver.manage().window().maximize();
 			WebElement srchtxt=driver.findElement(By.xpath("//input[@id='search_txt']"));
 			srchtxt.sendKeys(AccountName);
+			/////////////////////////////////////////
+			WebElement IBMbtn=driver.findElement(By.xpath("//a[text()='IBM']"));
+			IBMbtn.click();
+			Thread.sleep(2000);
+			Alert alertmsg=driver.switchTo().alert();
+			String txt=alertmsg.getText();
+			System.out.println(txt);
+			alertmsg.accept();
+			System.out.println("Pop-up Message OK");
+			Thread.sleep(2000);
 			
 		   
 		}
