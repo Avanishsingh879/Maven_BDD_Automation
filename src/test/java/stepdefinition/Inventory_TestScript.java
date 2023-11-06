@@ -171,7 +171,7 @@ public class Inventory_TestScript {
 			WebElement srchtxt=driver.findElement(By.xpath("//input[@id='search_txt']"));
 			srchtxt.sendKeys(AccountName);
 			/////////////////////////////////////////
-			WebElement IBMbtn=driver.findElement(By.xpath("//a[text()='IBM']"));
+			WebElement IBMbtn=driver.findElement(By.xpath("//a[text()='Genpact']"));
 			IBMbtn.click();
 			Thread.sleep(2000);
 			Alert alertmsg=driver.switchTo().alert();
