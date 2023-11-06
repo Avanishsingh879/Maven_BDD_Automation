@@ -36,5 +36,5 @@ Feature: Validating Inventory page
     Examples:
   
     |Subject|AccountName|
-    |TestInvoice|IBM|   
+    |TestInvoice|Genpact|   
     

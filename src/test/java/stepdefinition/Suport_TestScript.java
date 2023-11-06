@@ -61,6 +61,17 @@ public class Suport_TestScript {
 	public void user_verify_the_Creating_Contacts_in_Support_by_click_on_Save_button() {
 	   
 	}
-
+    
+	///Date-1-10-2023
+	@Then("User has click on Documents tab")
+	public void user_has_click_on_Documents_tab() {
+	   
+	}
+     
+	///Date-1-10-2023
+	@Then("User verify the Creating Documents in Support Tab by click on Save button")
+	public void user_verify_the_Creating_Documents_in_Support_Tab_by_click_on_Save_button() {
+	    
+	}
 
 }

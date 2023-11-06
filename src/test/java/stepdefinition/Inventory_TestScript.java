@@ -33,7 +33,7 @@ public class Inventory_TestScript {
 		FileInputStream fis=new FileInputStream("Config.properties");
 		file=new Properties();
 		file.load(fis);
-		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_118.exe");
+		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_119.exe");
 		driver=new ChromeDriver();
 		driver.get(file.getProperty("Url"));
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
