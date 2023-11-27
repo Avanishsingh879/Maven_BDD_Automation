@@ -37,6 +37,8 @@ Feature: Validating Sales page
     And User has click on Accounts tab
     And User verify the Creating Accounts in Sales by click on Save button
     
+
+    
     
     
     
