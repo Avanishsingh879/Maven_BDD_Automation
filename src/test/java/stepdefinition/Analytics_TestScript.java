@@ -100,7 +100,7 @@ public class Analytics_TestScript {
 	}
 
 	@Then("User verify and click on new report in Analytics Page")
-	public void user_verify_and_click_on_new_report_in_Analytics_Page() throws InterruptedException {
+	public void user_verify_and_click_on_new_report_in_Analytics_Page() throws InterruptedException, IOException {
 		
 		//WebElement ReportsBtn=driver.findElement(By.xpath("//div[@id='Analytics_sub']//a[text()='Reports']"));
 		//ReportsBtn.click();
@@ -166,6 +166,55 @@ public class Analytics_TestScript {
 	      //JavascriptExecutor js1=(JavascriptExecutor)driver;
 	      js1.executeScript("arguments[0].click()",nextBtn);
 	      Thread.sleep(2000);
+	      
+	      //////////////////Select All Related Module//////////////////////////////////////
+	      ///multiple window////////
+	      String maincheckwindow=driver.getWindowHandle();
+	      System.out.println(maincheckwindow);
+	      Set<String>set1=driver.getWindowHandles();
+	      Iterator<String>itr1= set1.iterator();
+	      
+	      while(itr1.hasNext()) {
+	    	  
+	    	 String childcheckwindow= itr1.next();
+	    	 System.out.println(childcheckwindow);
+	    	 if(childcheckwindow.equalsIgnoreCase("vtiger CRM - Create Report")) {
+	    		 
+	    		 break;
+	    	 }
+	      }
+	       System.out.println("Multiple window Handling");
+	       Thread.sleep(2000);
+	       //List<WebElement> selectAll=driver.findElements(By.xpath("//table[@class='small']//input"));
+	       List<WebElement> checkboxclkElement=driver.findElements(By.xpath("//*[@id='step2']/table/tbody/tr[3]/td[2]/table/tbody//input"));
+	       for(int i=0;i<checkboxclkElement.size();i++) {
+	    	   
+	    	   checkboxclkElement.get(i).click();
+	       Thread.sleep(1000);
+	    	 System.out.println("Select All Related Module checked");
+	       }
+	       //checkboxclkElement.click();
+	       Thread.sleep(3000);
+	       //////////TakeScreenshot//////////////
+	       
+	       File Scrr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	       
+	       FileUtils.copyFile(Scrr, new File("./Screenshots/checkBox.png"));
+	       System.out.println("Taking All Check Box Screnshot");
+	       Thread.sleep(2000);
+	       ///////////ScrollDown//////////
+	       
+	       JavascriptExecutor js2=(JavascriptExecutor)driver;
+	       //js2.executeScript("window.scrollBy,0,450");
+	       WebElement Nextclk=driver.findElement(By.xpath("//input[@name='next']"));
+	       js2.executeScript("arguments[0].scrollIntoView(true);", Nextclk);
+	       Thread.sleep(3000);
+	       /////////////click Next Button///
+	       
+	       WebElement Nextclk1=driver.findElement(By.xpath("//input[@name='next']"));
+	       js2.executeScript("arguments[0].click();",Nextclk1);
+	       Thread.sleep(2000);
+	       
 	}
 	
 	
