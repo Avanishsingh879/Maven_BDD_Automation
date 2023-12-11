@@ -16,4 +16,14 @@ Feature: Validating Tools page
     Then Login SucessfullY
     And User is in vtigerCRM Home page
     And User has click on Tools tab
-    And User verify and create Documents in Tools Page
+    And User verify the OurSites in Tools Page
+    
+Scenario: verify the Vtiger Login Page
+
+   Given I navigate to application Open URl
+   When User Enter Username and Password by click on login Button
+   Then Login Sucessfully
+   And User is in vtigerCRM Home page
+   And User has click on Tools page
+   And User verify the Documents in Tools Page
+   
