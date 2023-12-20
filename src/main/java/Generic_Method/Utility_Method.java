@@ -13,6 +13,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
+
+import cucumber.api.Scenario;
 
 
 
@@ -25,6 +28,7 @@ public class Utility_Method {
     public static JavascriptExecutor Js;
     public static Properties fileObject;
     public static String path="OR.properties ";
+    public static WebDriver driver;
     
     // TakeScreenshots
     public static void captureScreenShot(WebDriver driver)
@@ -67,13 +71,24 @@ public class Utility_Method {
     }
 
     /////Propertis File
-    
+   
     public static void readPropertiesFile() throws IOException{
     	
     	fileObject= new Properties();
     	FileInputStream fis=new FileInputStream(path);
     	fileObject.load(fis);
     	
+    }
+    
+    //////////////Attach SccrenShot/////////////////////
+    @AfterMethod
+    public static void TakesScreenshotOnFilure(WebDriver driver,Scenario scenario) {
+    	
+    	if(scenario.isFailed()) {
+    		TakesScreenshot ts=(TakesScreenshot)driver;
+    		byte[]src=ts.getScreenshotAs(OutputType.BYTES);
+    		scenario.embed(src, "image/png");
+    	}
     }
     }
 

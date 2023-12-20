@@ -17,14 +17,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-
-import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Tools_TestScript {
+public class Tools_TestScript{
 	
 	public static WebDriver driver;
 	public static Properties files;
@@ -47,7 +44,6 @@ public class Tools_TestScript {
 		//FileUtils.copyFile(src, new File("./Screenshots/test.png"));
 		
 		
-	
 	}
 
 	@When("User Enter Username and Password by click On login Button")

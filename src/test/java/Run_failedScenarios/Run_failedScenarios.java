@@ -1,4 +1,4 @@
-package Testrunner;
+package Run_failedScenarios;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
@@ -6,7 +6,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
 		strict = true,
 		monochrome = true, 
-		features = {"src/test/resources/features/"},
+		features = {"rerun/failed_scenarios.txt"},
 		tags={"@Tools_2"},
 		glue = {"stepdefinition","Testrunner"}, 	
 		plugin = {
@@ -21,6 +21,8 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 	//	 plugin = {"json:target/cucumber-report/cucumber.json"}
 		)
 
-public class TestSuiterunner extends AbstractTestNGCucumberTests {
+public class Run_failedScenarios extends AbstractTestNGCucumberTests {
+	
+	
 
 }
