@@ -17,8 +17,6 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 	                "rerun:rerun/failed_scenarios.txt"
 	        }
 	
-		 
-	//	 plugin = {"json:target/cucumber-report/cucumber.json"}
 		)
 
 public class Run_failedScenarios extends AbstractTestNGCucumberTests {

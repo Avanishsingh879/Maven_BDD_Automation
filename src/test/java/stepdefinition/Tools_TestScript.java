@@ -17,6 +17,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
+import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -134,18 +137,51 @@ public class Tools_TestScript{
 	    String txtMesage=alt.getText();
 	    System.out.println(txtMesage);
 	    alt.dismiss();
-	    System.out.println("Pop-up Message Dismiss");
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+	    System.out.println("Pop-up Message Dismiss");	
+	}
+	
+	@Then("User verify the Documents in Tools Page")
+	public void user_verify_the_Documents_in_Tools_Page() throws InterruptedException, IOException {
+		
+		Thread.sleep(2000);
+		WebElement ToolsHover=driver.findElement(By.xpath("//a[text()='Tools']"));
+		Actions act=new Actions(driver);
+		act.moveToElement(ToolsHover).build().perform();
+		WebElement Docs=driver.findElement(By.xpath("//div[@id='Tools_sub']/table/tbody/tr[3]//a"));
+		Docs.click();
+		Thread.sleep(2000);
+		File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(src, new File("./Screenshots/docs.png"));
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//img[@title='Create Document...']")).click();
+		Thread.sleep(2000);
+		WebElement notesTitle=driver.findElement(By.xpath("//input[@name='notes_title']"));
+		JavascriptExecutor jsscript=(JavascriptExecutor)driver;
+		jsscript.executeScript("arguments[0].value='TestDocs';", notesTitle);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id='basicTab']//tbody/tr[2]/td/table/tbody/tr[1]/td/div/input[1]")).click();
+		Thread.sleep(2000);
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	    
 	}
 
 }

@@ -17,13 +17,14 @@ Feature: Validating Tools page
     And User is in vtigerCRM Home page
     And User has click on Tools tab
     And User verify the OurSites in Tools Page
-    
+  
+@Regression @Tools_3   @TC_003  
 Scenario: verify the Vtiger Login Page
 
    Given I navigate to application Open URl
-   When User Enter Username and Password by click on login Button
+   When User Enter Username and Password by click On login Button
    Then Login Sucessfully
    And User is in vtigerCRM Home page
-   And User has click on Tools page
+   And User has click on Tools tab
    And User verify the Documents in Tools Page
    
