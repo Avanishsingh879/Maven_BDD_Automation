@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.maven.shared.utils.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -80,6 +81,10 @@ public class Utility_Method {
     	
     }
     
+    public static void Logout() {
+    	
+    	driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+    }
     //////////////Attach SccrenShot/////////////////////
     @AfterMethod
     public static void TakesScreenshotOnFilure(WebDriver driver,Scenario scenario) {
@@ -90,6 +95,8 @@ public class Utility_Method {
     		scenario.embed(src, "image/png");
     	}
     }
+    
+   
     }
 
 
