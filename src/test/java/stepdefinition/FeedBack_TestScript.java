@@ -16,6 +16,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 
@@ -34,29 +36,37 @@ public class FeedBack_TestScript {
 	@Given("User navigate the Application Url")
 	public void user_navigate_the_Application_Url() throws IOException, InterruptedException {
 		
-		FileInputStream fis=new FileInputStream("Config.properties");
-		files=new Properties();
-		files.load(fis);
-		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver_126.exe");
-		driver=new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		driver.get(files.getProperty("Url"));
-		System.out.println("Browser Launch");
-		Thread.sleep(2000);
-		File src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(src, new File("./Screenshots/test16.png"));
+		/*
+		 * FileInputStream fis=new FileInputStream("Config.properties"); files=new
+		 * Properties(); files.load(fis); System.setProperty("webdriver.chrome.driver",
+		 * "Drivers\\chromedriver_126.exe"); driver=new ChromeDriver();
+		 * driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+		 * driver.manage().window().maximize(); driver.get(files.getProperty("Url"));
+		 * System.out.println("Browser Launch"); Thread.sleep(2000); File
+		 * src=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		 * FileUtils.copyFile(src, new File("./Screenshots/test16.png"));
+		 */
 		
+		System.setProperty("webdriver.chrome.driver","Drivers\\chromedriver_126.exe");		
+		ChromeOptions options = new ChromeOptions();
+		//options.addExtensions(new File("X://extension_3_40_1_0.crx")); 
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		options.merge(capabilities);
+		driver = new ChromeDriver(options);
+		driver.get("http://localhost:8888/");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
 	   
 	}
 
 	@When("User enter username and password by click on SingIn Page")
 	public void user_enter_username_and_password_by_click_on_SingIn_Page() throws InterruptedException {
 		
-		driver.findElement(By.xpath("//input[@name='user_name']")).sendKeys(files.getProperty("username"));
-		WebElement pwd=driver.findElement(By.xpath("//input[@name='user_password']"));
+		driver.findElement(By.xpath("//input[@name='user_name']")).sendKeys("admin");
+		driver.findElement(By.xpath("//input[@name='user_password']")).sendKeys("admin");
 		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].value='admin'", pwd);
+		
 		
 		Thread.sleep(2000);
 		
