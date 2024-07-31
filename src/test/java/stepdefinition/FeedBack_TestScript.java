@@ -57,7 +57,7 @@ public class FeedBack_TestScript {
 		driver.get("http://localhost:8888/");
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
-		System.out.println("Test case passed");
+		System.out.println("Test case passed 123");
 	   
 	}
 
