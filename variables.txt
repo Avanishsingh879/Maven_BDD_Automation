@@ -1,0 +1,40 @@
+variables:
+  - name: BuildParameters.mavenPOMFile
+    value: Frameium/pom.xml
+name: $(date:yyyyMMdd)$(rev:.r)
+resources:
+  repositories:
+    - repository: self
+      type: git
+      ref: refs/heads/feature/Azure_ADO
+trigger:
+  branches:
+    include:
+      - feature/Azure_ADO
+jobs:
+  - job: Job_1
+    displayName: Agent job 1
+    pool:
+      vmImage: windows-latest
+    steps:
+      - checkout: self
+        fetchDepth: 1
+      - task: Maven@3
+        displayName: Maven Frameium/pom.xml
+        inputs:
+          mavenPOMFile: $(BuildParameters.mavenPOMFile)
+          goals: clean test
+          options: -Dcucumber.filter.tags="@AboutSwag"
+          jdkVersion: 1.17
+      - task: CopyFiles@2
+        displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+        condition: succeededOrFailed()
+        inputs:
+          SourceFolder: $(system.defaultworkingdirectory)
+          Contents: '**/*.jar'
+          TargetFolder: $(build.artifactstagingdirectory)
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact: drop'
+        condition: succeededOrFailed()
+        inputs:
+          PathtoPublish: $(build.artifactstagingdirectory)
